@@ -6,8 +6,9 @@
 
 /* Global styles */
 html, body, .App{
-  height: 100%;
+  min-height: 100%;
   width: 100%;
+  background-color: #01010f;
 }
 .navbar {
   background-color: rgba(51, 51, 51, 0.288);
@@ -78,6 +79,7 @@ html, body, .App{
 
 /*home page*/
 .home {
+  position: relative;
   background-color: #f5f5f5;
   height: 100vh;
   display: flex;
@@ -170,11 +172,13 @@ html, body, .App{
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 2rem;
   z-index: 1;
   color: #fff;
   width: 100%;
+  padding: 0 1rem;
+  gap: 1rem;
 }
 
 .home .lists > .movie{
@@ -253,14 +257,147 @@ html, body, .App{
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   width: 200px;
+  height: 250px;
+}
+
+.movies .category > .movie-list .movie img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .movies .category > .movie-list .movie span{
   margin-top: .8rem;
   font-size: .8rem;
+  font-weight: bold;
   
 }
 
+/*Review*/
+.review{
+  position: relative;
+  background-color: #01010f;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  color: #fff;
+  padding: 0 15rem;
+}
+
+.review > .sideA, .sideB{
+  margin-top: 10rem;
+}
+
+.review > .sideA{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.review > .sideA > img{
+
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.review > .sideA .details{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.review > .sideA .details h1{
+  padding: 1.2rem 0;
+  line-height: 1.3;
+}
+
+.review > .sideA .details .rating{
+  padding: .3rem 0;
+  color: rgb(45, 172, 6);
+}
+
+.review > .sideA .details .genres{
+  padding: .5rem 0;
+}
+
+.review > .sideA .details p{
+  line-height: 1.8;
+  color: rgb(155, 155, 155);
+  letter-spacing: .02rem;
+
+}
+
+.review > .sideB{
+  position: fixed;
+  top: 0;
+  right: 12rem;
+  background-color: #090914;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem .8rem;
+  width: 21%;
+ 
+}
+
+.review > .sideB > h2{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.review > .sideB .review-list{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 100%;
+  overflow: auto;
+}
+
+.review > .sideB .review-list > .movie{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  background-color: #111122a1;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+
+
+}
+
+.review > .sideB .review-list > .movie:hover{
+  background-color: #111122;
+  transition: all 0.5s ease-in-out;
+}
+
+.review > .sideB .review-list > .movie img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.review > .sideB .review-list > .movie .details{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.review > .sideB .review-list > .movie .details h3{
+  padding: .3rem 0;
+}
+
+.review > .sideB .review-list > .movie .details span{
+  padding: .2rem 0;
+  font-size: .9rem;
+  color: rgb(155, 155, 155);
+}
 /*Add a movie*/
 .new-movie{
   position: relative;
@@ -400,19 +537,20 @@ html, body, .App{
 
     .home{
       width: 100%;
-      height: 100vh !important;
+      min-height: 100vh !important;
     }
 
     .home > img, .overlay{
-      min-height: 100vh;
+      min-height: 100%;
       background: linear-gradient(90deg, rgba(0,3,10,0.9164040616246498) 0%, rgba(0,3,10,0.6026785714285714) 44%, rgba(0,3,10,0.10407913165266103) 100%) !important;
     }
 
 
     .home .details{
       width: 100%;
-      margin-left: 2rem;
-      margin-top: 25rem;
+      padding-left: 2rem;
+      margin-top: 15rem;
+      margin-left: 0;
     }
 
     .home .details > h1{
@@ -424,19 +562,34 @@ html, body, .App{
       text-align: left;
     }
 
-    .home .lists > .movie img{
+    .home .lists{
+     color: grey;
+     margin-top: 0;
+    }
+
+    .movies .category > .movie-list .movie img{
       width: 100px;
       height: 150px;
     }
 
+    .movies .category > .movie-list .movie span{
+      margin-top: .2rem;
+    }
+
+    .home .lists > .movie img{
+      width: 100px;
+      height: 68px !important;
+    }
+
     .home .lists > .movie{
-     height: 150px;
-     margin-bottom: 1rem;
+     height: 100px;
+     margin-bottom: 0;
 
     }
 
     .home .lists > .movie span{
       font-size: .8rem;
+      margin: .3rem 0
     }
     /*movies*/
     .movies{
@@ -470,6 +623,29 @@ html, body, .App{
       width: 100%;
       overflow: hidden;
       margin-top: .4rem;
+    }
+
+    /*reviews*/
+    .review{
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+
+    .review > .sideA{
+      justify-content: flex-end;
+   
+    }
+
+    .review > .sideA > .overlay{
+      display: none;
+    }
+
+    .review > .sideB{
+      position: relative;
+      right: 0;
+      margin-top: 0;
+      width: 100%;
     }
 
     /*add movie*/

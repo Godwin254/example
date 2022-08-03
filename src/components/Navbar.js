@@ -10,8 +10,8 @@ export default function Navbar() {
         <div className='nav-links'>
             <Link to="/">Home</Link>
             <Link to="/movies">Movies</Link>
-            <Link to="/Reviews">Reviews</Link>
-            <Link to="/add-movie">Add Movie</Link>
+            <Link to="/reviews">Reviews</Link>
+            <Link to="/add-review">Add Review</Link>
         </div>
 
         <div className='search'>

@@ -1,25 +1,41 @@
 import React from 'react'
+import {useState} from 'react'
 
-export default function ({movies}) {
+export default function Review({movies}) {
 
+    let selected = movies[0];
+    const [selectedMovie, setSelectedMovie] = useState("")
+    console.log( selectedMovie)
+
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        console.log("Item clicked")
+    }
 
 
   return (
-    <div className="home">
-        <DisplayMovie />
-        <div className='lists'>
-            {
-                movies.map(movie => <Movie key={movie.id} movie={movie} />)
-            }
+    <div className="review">
+        <div className="sideA">
+            <DisplayMovie selectedMovie={selectedMovie}/>
+
         </div>
 
+        <div className="sideB">
+            <h2>Review List ({movies.length})</h2>
+            <div className="review-list">
+                {
+                      movies.map(movie => <MovieList key={movie.id} movie={movie} handleClick = {handleClick}/>)
+                }
+            </div>
+
+        </div>
 
     </div>
   )
 }
 
-
-const DisplayMovie = ({ selectedMovie }) => {
+const DisplayMovie = ({selectedMovie}) => {
 
     //const {title, type, rating, genres, plot, url} = selectedMovie;
 
@@ -43,16 +59,20 @@ const DisplayMovie = ({ selectedMovie }) => {
     )
 }
 
+//review List
+const MovieList = ({movie, handleClick}) => {
 
-// movie 
-const Movie = ({movie}) => {
-
-    const {url, title} = movie;
+    const { title, url, rating, genres, year } = movie;
 
     return (
-        <div className='movie'>
+        <div className='movie' onClick={handleClick}>
             <img src={url} />
-            <span>{title}</span>
+            <div className="details">
+                <h3>{title}</h3>
+                <span>Rating- {rating}</span>
+                <span>{genres}</span>
+                <span>{year}</span>
+            </div>
         </div>
     )
 }
