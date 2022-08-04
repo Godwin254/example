@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ({movies}) {
+export default function Home({movies, handleSelected, selected}) {
 
 
 
@@ -9,7 +9,7 @@ export default function ({movies}) {
         <DisplayMovie />
         <div className='lists'>
             {
-                movies.map(movie => <Movie key={movie.id} movie={movie} />)
+                movies.map(movie => <Movie key={movie.id} movie={movie} handleSelected={handleSelected} selected ={selected} />)
             }
         </div>
 
@@ -45,12 +45,12 @@ const DisplayMovie = ({ selectedMovie }) => {
 
 
 // movie 
-const Movie = ({movie}) => {
+const Movie = ({movie, handleSelected, selected}) => {
 
     const {url, title} = movie;
 
     return (
-        <div className='movie'>
+        <div className='movie' onClick={handleSelected} style={{border: selected ? "1px solid" : "none"}}>
             <img src={url} />
             <span>{title}</span>
         </div>
