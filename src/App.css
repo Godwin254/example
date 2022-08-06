@@ -31,7 +31,7 @@ html, body, .App{
   font-size: 1.3rem;
   font-weight: bold;
   color: rgb(219, 218, 218);
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.1rem;
   cursor: pointer;
   text-decoration: none;
@@ -39,6 +39,11 @@ html, body, .App{
 
 .navbar .logo a:hover {
   color: #fff;
+}
+
+.navbar .logo a h1 > .lg{
+  font-size: 2rem;
+  color: rgb(163, 163, 26);
 }
 
 .navbar .nav-links {
@@ -67,14 +72,26 @@ html, body, .App{
   background: none;
 }
 
-.navbar .search{
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
+.navbar .btns{
+  position: relative;
+  flex-basis: 200px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  background-color: rgb(92, 92, 92);
+  
+}
+
+.navbar .btns .btn{
+  font-size: 1.6rem;
+  color: rgba(202, 198, 198, 0.637);
+  cursor: pointer;
+  transition: all .4s ease-in-out;
+}
+
+.navbar .btns .btn:hover{
+  transition: all .4s ease-in-out;
+  color: rgba(238, 234, 234, 0.774);
 }
 
 /*home page*/
@@ -122,23 +139,30 @@ html, body, .App{
 .home .details > h1{
   font-size: 5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: .4rem;
 }
 
 .home .details > span{
   font-size: 1.5rem;
   font-weight: normal;
-  color: rgb(45, 172, 6);
-  margin-bottom: 1rem;
+  color: rgb(171, 175, 170);
 }
 
-.home .details > .rating > span{
-  font-size: 1.2rem;
-  font-weight: normal;
-  padding-top: 2rem;
-  color: rgb(45, 172, 6);
-  font-style: italic;
+.home .details > .rating{
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
+
+.home .details > .rating .star{
+  color: rgb(163, 163, 26);
+  font-size: 2rem;
+  margin-right: 1.3rem;
+}
+
 
 .home .details > .genres{
   display: flex;
@@ -150,21 +174,57 @@ html, body, .App{
   flex-direction: row;
   justify-content: flex-start;
 
-
 }
 
 .home .details > .genres > span{
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-right: 1rem;
+  font-size: 1.1rem;
+  margin-right: 3rem;
+  color: rgba(253, 253, 253, 0.596);
+}
+
+.home .details > .controls{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0;
+}
+
+.home .details > .controls .ctrl{
+  position: relative;
+  flex-basis: 100px;
+  font-size: 3rem;
+  font-weight: normal;
+  cursor: pointer;
+  background-color: rgba(19, 6, 39, 0.486);
+
+}
+
+.home .details > .controls .ctrl:nth-child(1){
+  border: none;
+  background-color: rgba(255, 255, 255, 0.89);
+  color: #01010f;
 }
 
 .home .details > p{
   font-size: 1.2rem;
   font-weight: normal;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  color: rgb(155, 155, 155);
+  margin: 1.5rem 0;
+  line-height: 1.7;
+  color: rgba(155, 155, 155, 0.685);
+  height: 160px;
+  width: 100%;
+  overflow-y: hidden;
+  text-align: left;
+}
+
+.home  .main-player{
+  color: rgba(238, 238, 237, 0.705);
+  position: absolute;
+  top: 35%;
+  right: 25%;
+  font-size: 4rem;
+  cursor: pointer;
+
 }
 
 .home .lists{
@@ -173,7 +233,7 @@ html, body, .App{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 0;
   z-index: 1;
   color: #fff;
   width: 100%;
@@ -191,21 +251,20 @@ html, body, .App{
 }
 
 .home .lists > .movie:hover{
-  background-color: rgb(45, 172, 6);
+  background-color: rgba(163, 163, 26, 0.705);
   color: rgb(2, 3, 19);
   transition: all 0.5s ease-in-out;
 }
 
 .home .lists > .movie img{
   width: 200px;
-  height: 250px;
+  height: 230px;
   object-fit: cover;
 }
 .home .lists > .movie span{
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 1rem;
-  margin: 1rem 0;
+  margin: .5rem 0;
 }
 
 
@@ -510,6 +569,10 @@ html, body, .App{
     justify-content: space-evenly;
     height: 15vh;
   }
+
+  .navbar .btns{
+    display: none;
+  }
   .navbar .nav-links{
       position: relative;
       display: flex;
@@ -523,6 +586,10 @@ html, body, .App{
 
     .navbar .nav-links a{
       font-size: 1rem;
+    }
+
+    .navbar .logo a h1 > .lg{
+      font-size: 1.5rem;
     }
 
     .navbar .logo a {
@@ -549,7 +616,7 @@ html, body, .App{
     .home .details{
       width: 100%;
       padding-left: 2rem;
-      margin-top: 15rem;
+      margin-top: 16rem;
       margin-left: 0;
     }
 
@@ -557,10 +624,33 @@ html, body, .App{
       font-size: 3rem;
     }
 
+    .home .details > .rating{
+      margin-top: 1.5rem;
+    }
+
+    .home .details > .rating .star{
+      font-size: 1.5rem;
+      margin-right: 1.1rem;
+    }
+
+    .home .details > .genres > span{
+      margin-right: 2rem;
+      font-size: 1rem;
+    }
+
+    .home .details > .controls .ctrl{
+      font-size: 1.5rem;
+    }
+
     .home .details > p{
       margin-right: 2rem;
       text-align: left;
     }
+
+    .home  .main-player{
+      display: none;
+    }
+
 
     .home .lists{
      color: grey;
