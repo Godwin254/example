@@ -7,7 +7,7 @@ import Review from './components/Review';
 import AddMovie from './components/AddMovie';
 import {useState, useEffect} from 'react'
 
-const movieApi = 'http://localhost:8000/movies'
+const movieApi = 'https://godwin254.github.io/movie-api/db.json'
 
 function App() {
   
@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     fetch(movieApi)
     .then(res => res.json())
-    .then( data => setMovies(data) );
+    .then( data => setMovies(data.movies) );
   }, []);
 
   //handle selection of videos
@@ -28,6 +28,8 @@ function App() {
     setSelected(current => !current);
     console.log("selected!")
   }
+
+  console.log(movies)
 
   return (
     <div className="App">
