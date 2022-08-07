@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
+import { BsPlayCircle } from 'react-icons/bs'
 
 export default function Review({movies}) {
 
@@ -42,6 +43,7 @@ const DisplayMovie = ({selectedMovie}) => {
     return (
         <>
             <img src={require("../images/image3.jpg")} alt="image1" />
+            <BsPlayCircle className='play'/>
             <div className="overlay"></div>
             <div className="details">
                 <h1>The Witcher</h1>
